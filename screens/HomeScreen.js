@@ -34,7 +34,12 @@ export default function HomeScreen({ navigation }) {
                         imageUrl={item.urlToImage}
                         title={item.title}
                         author={item.author}
-                        onPress={() => navigation.navigate('Article')}
+                        onPress={
+                            () =>
+                                navigation.navigate('Article', {
+                                    article: item,
+                                }) // ここで名付けたarticleというキー名を遷移先で使用し、中身のitemを展開する
+                        }
                     />
                 )}
                 keyExtractor={(item, index) => index.toString()} // 配列内各項目にユニークなキーの指定が必要
